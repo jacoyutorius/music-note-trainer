@@ -137,7 +137,14 @@ function App() {
             </ul>
           </section>
         </div>
-      </div> 
+
+        <footer className="bg-white m-2 dark:bg-gray-800">
+          <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://twitter.com/jacoyutorius" className="hover:underline">@jacoyutorius</a>. All Rights Reserved.
+            </span>
+          </div>
+        </footer>
+      </div>
     </>
   );
 }
