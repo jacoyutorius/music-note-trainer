@@ -2,10 +2,10 @@ import { useState } from 'react';
 import './App.css';
 
 // 画像の読み込み
-const imageFiles = import.meta.glob('./assets/images/*.png', { eager: true });
+const imageFiles: Record<string, { default: string }> = import.meta.glob('./assets/images/*.png', { eager: true });
 const images = Object.fromEntries(
   Object.entries(imageFiles).map(([key, value]) => {
-    const name = key.match(/\.\/assets\/images\/(.+)\.png$/)[1];
+    const name = key.match(/\.\/assets\/images\/(.+)\.png$/)?.[1] || '';
     return [name, value];
   })
 );
@@ -49,12 +49,9 @@ function App() {
   };
 
   // ボタンが押されたときの検証ロジック
-  const checkAnswer = (selectedNote) => {
-    console.log(selectedNote, currentImage);
-
+  const checkAnswer = (selectedNote:string) => {
     // 選択された音符が正解かどうかを判定
-    // トリムして比較する
-    if (selectedNote.trim() === currentImage.trim()) {
+    if (selectedNote === currentImage) {
       setResultMessage('正解です！🎉');
       getNextImage(); // 正解の場合は次の問題へ
     } else {
@@ -119,7 +116,7 @@ function App() {
                     checked={labelType === 'doremi'}
                     onChange={() => setLabelType('doremi')}
                   />
-                  <label htmlFor="horizontal-list-radio-license" className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">ドレミ表示</label>
+                  <label htmlFor="horizontal-list-radio-license" className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">ドレミ</label>
                 </div>
               </li>
               <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
@@ -131,7 +128,7 @@ function App() {
                     checked={labelType === 'efg'}
                     onChange={() => setLabelType('efg')}
                   />
-                  <label htmlFor="horizontal-list-radio-license" className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">ABC表示</label>
+                  <label htmlFor="horizontal-list-radio-license" className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">ABC</label>
                 </div>
               </li>
             </ul>
