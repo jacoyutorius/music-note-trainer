@@ -18,6 +18,27 @@ function App() {
   });
   const [resultMessage, setResultMessage] = useState(''); // 結果メッセージ
 
+  // 表示形式の状態管理
+  const [labelType, setLabelType] = useState('doremi'); // 'doremi' または 'efg'
+
+  // 音階データ
+  const notes = [
+    { note: "c", doremi: "ド", efg: "C" },
+    { note: "d", doremi: "レ", efg: "D" },
+    { note: "e", doremi: "ミ", efg: "E" },
+    { note: "f", doremi: "ファ", efg: "F" },
+    { note: "g", doremi: "ソ", efg: "G" },
+    { note: "a", doremi: "ラ", efg: "A" },
+    { note: "b", doremi: "シ", efg: "B" },
+    { note: "high_c", doremi: "高いド", efg: "High C" },
+    { note: "high_d", doremi: "高いレ", efg: "High D" },
+    { note: "high_e", doremi: "高いミ", efg: "High E" },
+    { note: "high_f", doremi: "高いファ", efg: "High F" },
+    { note: "high_g", doremi: "高いソ", efg: "High G" },
+    { note: "high_a", doremi: "高いラ", efg: "High A" },
+    { note: "high_b", doremi: "高いシ", efg: "High B" },
+  ];
+
   // 次の画像をランダムに選択する関数
   const getNextImage = () => {
     const imageKeys = Object.keys(images);
@@ -49,26 +70,12 @@ function App() {
         <img src={images[currentImage].default} alt={currentImage} />
       </div>
 
+      {/* 音名ボタン */}
       <section>
         <h2>これはなんの音ですか？</h2>
-        {[
-          { note: "c", label: "ド" },
-          { note: "d", label: "レ" },
-          { note: "e", label: "ミ" },
-          { note: "f", label: "ファ" },
-          { note: "g", label: "ソ" },
-          { note: "a", label: "ラ" },
-          { note: "b", label: "シ" },
-          { note: "high_c", label: "高いド" },
-          { note: "high_d", label: "高いレ" },
-          { note: "high_e", label: "高いミ" },
-          { note: "high_f", label: "高いファ" },
-          { note: "high_g", label: "高いソ" },
-          { note: "high_a", label: "高いラ" },
-          { note: "high_b", label: "高いシ" },
-        ].map(({ note, label }, index) => (
+        {notes.map(({ note, doremi, efg }, index) => (
           <button key={index} onClick={() => checkAnswer(note)}>
-            {label}
+            {labelType === 'doremi' ? doremi : efg}
           </button>
         ))}
       </section>
@@ -78,6 +85,31 @@ function App() {
 
       {/* 次の画像ボタン（ユーザーがリセットしたいとき用） */}
       <button onClick={getNextImage}>次の音符</button>
+
+      {/* 表示形式の選択 */}
+      <section>
+        <h4>表示形式を選択</h4>
+        <label>
+          <input
+            type="radio"
+            name="labelType"
+            value="doremi"
+            checked={labelType === 'doremi'}
+            onChange={() => setLabelType('doremi')}
+          />
+          ドレミ表示
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="labelType"
+            value="efg"
+            checked={labelType === 'efg'}
+            onChange={() => setLabelType('efg')}
+          />
+          EFG表示
+        </label>
+      </section>
     </>
   );
 }
