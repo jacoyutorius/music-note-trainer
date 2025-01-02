@@ -1,0 +1,15 @@
+{
+  "name": "Music Note Trainer",
+  "short_name": "MNT",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/music_note_trainer.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
