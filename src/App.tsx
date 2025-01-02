@@ -62,13 +62,13 @@ function App() {
     { note: "g", doremi: "ソ", efg: "G" },
     { note: "a", doremi: "ラ", efg: "A" },
     { note: "b", doremi: "シ", efg: "B" },
-    { note: "high_c", doremi: "高いド", efg: "High C" },
-    { note: "high_d", doremi: "高いレ", efg: "High D" },
-    { note: "high_e", doremi: "高いミ", efg: "High E" },
-    { note: "high_f", doremi: "高いファ", efg: "High F" },
-    { note: "high_g", doremi: "高いソ", efg: "High G" },
-    { note: "high_a", doremi: "高いラ", efg: "High A" },
-    { note: "high_b", doremi: "高いシ", efg: "High B" },
+    { note: "high_c", doremi: "高いド", efg: "C'" },
+    { note: "high_d", doremi: "高いレ", efg: "D'" },
+    { note: "high_e", doremi: "高いミ", efg: "E'" },
+    { note: "high_f", doremi: "高いファ", efg: "F'" },
+    { note: "high_g", doremi: "高いソ", efg: "G'" },
+    { note: "high_a", doremi: "高いラ", efg: "A'" },
+    { note: "high_b", doremi: "高いシ", efg: "B'" },
   ];
 
   // 次の画像をランダムに選択する関数
@@ -149,9 +149,7 @@ function App() {
 
         <div className="p-5">
           {/* 音名ボタン */}
-          <section>
-            {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">これはなんの音ですか？</h5> */}
-
+          {/* <section>
             {notes.map(({ note, doremi, efg }, index) => (
               <button key={index}
                 type="button"
@@ -160,7 +158,73 @@ function App() {
                 {labelType === 'doremi' ? doremi : efg}
               </button>
             ))}
+          </section> */}
+
+          <section>
+            <div className="grid grid-cols-7 gap-2">
+              {notes.map(({ note, doremi, efg }, index) => (
+                <div>
+                  <button key={index}
+                    type="button"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-xs px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    onClick={() => checkAnswer(note)}>
+                    {labelType === 'doremi' ? doremi : efg}
+                  </button>
+                </div>
+              ))}
+
+              {/* <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div>
+              <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div>
+              <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div>
+              <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div>
+              <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div>
+              <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div>
+              <div>
+                <button
+                  className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm mx-2 px-4 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                > 
+                ド  
+                </button>
+              </div> */}
+            </div>
           </section>
+
 
           {/* 結果メッセージ */}
           {resultMessage && (
