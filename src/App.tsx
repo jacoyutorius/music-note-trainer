@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import useSound from 'use-sound';
+import sound_c from './assets/sounds/c.wav';
 
 // 画像の読み込み
 const imageFiles: Record<string, { default: string }> = import.meta.glob('./assets/images/*.png', { eager: true });
@@ -20,6 +22,9 @@ function App() {
 
   // 表示形式の状態管理
   const [labelType, setLabelType] = useState('doremi'); // 'doremi' または 'efg'
+
+  // 音ファイルの定義
+  const [play_c] = useSound(sound_c, { volume: 1 });
 
   // 音階データ
   const notes = [
@@ -49,7 +54,10 @@ function App() {
   };
 
   // ボタンが押されたときの検証ロジック
-  const checkAnswer = (selectedNote:string) => {
+  const checkAnswer = (selectedNote: string) => {
+    console.log(selectedNote);
+    play_c();
+
     // 選択された音符が正解かどうかを判定
     if (selectedNote === currentImage) {
       setResultMessage('正解です！🎉');
