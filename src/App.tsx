@@ -2,6 +2,20 @@ import { useState } from 'react';
 import './App.css';
 import useSound from 'use-sound';
 import sound_c from './assets/sounds/c.wav';
+import sound_d from './assets/sounds/d.wav';
+import sound_e from './assets/sounds/e.wav';
+import sound_f from './assets/sounds/f.wav';
+import sound_g from './assets/sounds/g.wav';
+import sound_a from './assets/sounds/a.wav';
+import sound_b from './assets/sounds/b.wav';
+import sound_high_c from './assets/sounds/high_c.wav';
+import sound_high_d from './assets/sounds/high_d.wav';
+import sound_high_e from './assets/sounds/high_e.wav';
+import sound_high_f from './assets/sounds/high_f.wav';
+import sound_high_g from './assets/sounds/high_g.wav';
+import sound_high_a from './assets/sounds/high_a.wav';
+import sound_high_b from './assets/sounds/high_b.wav';
+
 
 // 画像の読み込み
 const imageFiles: Record<string, { default: string }> = import.meta.glob('./assets/images/*.png', { eager: true });
@@ -25,6 +39,19 @@ function App() {
 
   // 音ファイルの定義
   const [play_c] = useSound(sound_c, { volume: 1 });
+  const [play_d] = useSound(sound_d, { volume: 1 });
+  const [play_e] = useSound(sound_e, { volume: 1 });
+  const [play_f] = useSound(sound_f, { volume: 1 });
+  const [play_g] = useSound(sound_g, { volume: 1 });
+  const [play_a] = useSound(sound_a, { volume: 1 });
+  const [play_b] = useSound(sound_b, { volume: 1 });
+  const [play_high_c] = useSound(sound_high_c, { volume: 1 });
+  const [play_high_d] = useSound(sound_high_d, { volume: 1 });
+  const [play_high_e] = useSound(sound_high_e, { volume: 1 });
+  const [play_high_f] = useSound(sound_high_f, { volume: 1 });
+  const [play_high_g] = useSound(sound_high_g, { volume: 1 });
+  const [play_high_a] = useSound(sound_high_a, { volume: 1 });
+  const [play_high_b] = useSound(sound_high_b, { volume: 1 });
 
   // 音階データ
   const notes = [
@@ -49,14 +76,57 @@ function App() {
     const imageKeys = Object.keys(images);
     const randomKey = imageKeys[Math.floor(Math.random() * imageKeys.length)];
     setCurrentImage(randomKey);
-    console.log(randomKey);
     setResultMessage(''); // メッセージをリセット
   };
 
   // ボタンが押されたときの検証ロジック
   const checkAnswer = (selectedNote: string) => {
     console.log(selectedNote);
-    play_c();
+ 
+    switch (selectedNote) {
+      case 'c':
+        play_c();
+        break;
+      case 'd':
+        play_d();
+        break;
+      case 'e':
+        play_e();
+        break;
+      case 'f':
+        play_f();
+        break;
+      case 'g':
+        play_g();
+        break;
+      case 'a':
+        play_a();
+        break;
+      case 'b':
+        play_b();
+        break;
+      case 'high_c':
+        play_high_c();
+        break;
+      case 'high_d':
+        play_high_d();
+        break;
+      case 'high_e':
+        play_high_e();
+        break;
+      case 'high_f':
+        play_high_f();
+        break;
+      case 'high_g':
+        play_high_g();
+        break;
+      case 'high_a':
+        play_high_a();
+        break;
+      case 'high_b':
+        play_high_b();
+        break;
+    }
 
     // 選択された音符が正解かどうかを判定
     if (selectedNote === currentImage) {
@@ -70,7 +140,8 @@ function App() {
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <p className="text-3xl mt-4 font-semibold text-gray-900 dark:text-white">Music Note Trainer</p>
+        {/* <p className="text-3xl mt-4 font-semibold text-gray-900 dark:text-white">Music Note Trainer</p> */}
+        <p className="text-3xl mt-4 font-semibold text-gray-900 dark:text-white">なんの音？</p>
 
         <a href="#">
           <img src={images[currentImage].default} alt={currentImage} />
@@ -79,7 +150,7 @@ function App() {
         <div className="p-5">
           {/* 音名ボタン */}
           <section>
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">これはなんの音ですか？</h5>
+            {/* <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">これはなんの音ですか？</h5> */}
 
             {notes.map(({ note, doremi, efg }, index) => (
               <button key={index}
