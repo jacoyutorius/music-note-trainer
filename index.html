@@ -14,5 +14,22 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      (function(n,i,v,r,s,c,x,z){x=window.AwsRumClient={q:[],n:n,i:i,v:v,r:r,c:c};window[n]=function(c,p){x.q.push({c:c,p:p});};z=document.createElement('script');z.async=true;z.src=s;document.head.insertBefore(z,document.head.getElementsByTagName('script')[0]);})(
+        'cwr',
+        '0661e890-6768-44cd-bd26-13ee07f581a8',
+        '1.0.0',
+        'ap-northeast-1',
+        'https://client.rum.us-east-1.amazonaws.com/1.19.0/cwr.js',
+        {
+          sessionSampleRate: 1,
+          identityPoolId: "ap-northeast-1:f11e8760-7abb-4e3a-ac51-16db36141324",
+          endpoint: "https://dataplane.rum.ap-northeast-1.amazonaws.com",
+          telemetries: ["performance","errors","http"],
+          allowCookies: true,
+          enableXRay: false
+        }
+      );
+    </script>
   </body>
 </html>
