@@ -1,20 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-// import useSound from 'use-sound';
-// import sound_c from './assets/sounds/c.wav';
-// import sound_d from './assets/sounds/d.wav';
-// import sound_e from './assets/sounds/e.wav';
-// import sound_f from './assets/sounds/f.wav';
-// import sound_g from './assets/sounds/g.wav';
-// import sound_a from './assets/sounds/a.wav';
-// import sound_b from './assets/sounds/b.wav';
-// import sound_high_c from './assets/sounds/high_c.wav';
-// import sound_high_d from './assets/sounds/high_d.wav';
-// import sound_high_e from './assets/sounds/high_e.wav';
-// import sound_high_f from './assets/sounds/high_f.wav';
-// import sound_high_g from './assets/sounds/high_g.wav';
-// import sound_high_a from './assets/sounds/high_a.wav';
-// import sound_high_b from './assets/sounds/high_b.wav';
 import image_clef_treble from './assets/images/clef/treble.png';
 import image_clef_bass from './assets/images/clef/bass.png';
 

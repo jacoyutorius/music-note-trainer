@@ -1,4 +1,11 @@
-# React + TypeScript + Vite
+# Music Note Trainer
+
+読譜の練習アプリです。
+
+ト音記号・ヘ音記号の切り替え、ドレミ・ABCの表記切り替えができます。
+
+![スクリーンショット](./music-note-trainer.jacoyutorius.net_.png)
+
 
 ## 利用しているリソースについて
 
